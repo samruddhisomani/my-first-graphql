@@ -1,0 +1,16 @@
+type Product {
+  name: String!
+  price: Number!
+  image: String!
+  description: String
+  type: Type!
+  liquidCooled: Boolean
+  bikeType: String
+  range: String
+}
+
+enum Type {
+  GAMING_PC
+  BIKE
+  DRONE
+}
