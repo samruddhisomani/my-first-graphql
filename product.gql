@@ -1,4 +1,33 @@
 type Product {
+  ID: ID!
+  name: String!
+  price: Number!
+  image: String!
+  description: String
+  type: Type!
+  liquidCooled: Boolean
+  bikeType: String
+  range: String
+  createdBy: User
+}
+
+enum Type {
+  GAMING_PC
+  BIKE
+  DRONE
+}
+
+type User {
+  ID: ID!
+}
+
+type Query {
+  allProducts: [Product!]!
+  productById(id: String!): Product!
+}
+
+type CreateOrUpdateProductInput {
+  ID: ID!
   name: String!
   price: Number!
   image: String!
@@ -9,8 +38,12 @@ type Product {
   range: String
 }
 
-enum Type {
-  GAMING_PC
-  BIKE
-  DRONE
+type DeleteProductInput {
+  ID: ID!
+}
+
+type Mutation {
+  createProduct(input: CreateOrUpdateProductInput): Product!
+  deleteProduct(input: DeleteProductInput): Product!
+  updateProduct(input: CreateOrUpdateProductInput): Product!
 }
